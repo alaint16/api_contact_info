@@ -11,7 +11,7 @@ var ContactRoutes = require('./routes/contacts')
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-
+// connect to the data base
 mongoose.connect('mongodb://admin:admin@ds019766.mlab.com:19766/contact_api'); // connect to our database
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Connection error:'));
