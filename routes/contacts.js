@@ -57,17 +57,18 @@ router.route("/:id")
     console.log(req.params.id)
     Contact.findById({
         _id: req.params.id
-    }, function(err, bear) {
+    }, function(err, contact) {
         if (err) {
             res.json(err);
         } else {
-            contact.name = rep.body.name;
+            contact.name = req.body.name;
             contact.lastname = req.body.lastname;
             contact.address = req.body.address;
             contact.email = req.body.email;
             contact.dob = req.body.dob;
             contact.title = req.body.title;
             contact.country = req.body.country;
+            console.log("update id")
             contact.save(function(err) {
                 if (err)
                     res.send(err);
